@@ -8,6 +8,7 @@ Analyze this codebase and create or improve an AGENTS.md file, then symlink CLAU
 What to include:
 1. Commands commonly used for building, linting, and running tests — including how to run a single test.
 2. High-level architecture and code structure that requires reading multiple files to understand. Focus on the big picture, not file listings.
+3. A "Validation after changes" section that tells AI agents to always run lint/check/test after making any code change. List the exact commands for this repo (e.g. `pnpm lint`, `pnpm test`, `npx biome check .`). Make it explicit that this is required before committing or pushing.
 
 Usage notes:
 - If there's already an AGENTS.md, suggest improvements to it.
