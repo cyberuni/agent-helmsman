@@ -1,6 +1,8 @@
 ---
 name: init
 description: Use this skill when the user wants to initialize or improve an AGENTS.md file with codebase documentation. Creates AGENTS.md and symlinks CLAUDE.md to it, or suggests improvements if AGENTS.md already exists.
+metadata:
+  internal: true
 ---
 
 Analyze this codebase and create or improve an AGENTS.md file, then symlink CLAUDE.md to it.
@@ -8,7 +10,13 @@ Analyze this codebase and create or improve an AGENTS.md file, then symlink CLAU
 What to include:
 1. Commands commonly used for building, linting, and running tests — including how to run a single test.
 2. High-level architecture and code structure that requires reading multiple files to understand. Focus on the big picture, not file listings.
-3. A "Validation after changes" section that tells AI agents to always run lint/check/test after making any code change. List the exact commands for this repo (e.g. `pnpm lint`, `pnpm test`, `npx biome check .`). Make it explicit that this is required before committing or pushing.
+3. A "Skill Augmentations" section with this exact content:
+
+```markdown
+## Skill Augmentations
+
+When reading any `SKILL.md` file, always check whether a `SKILL.local.md` exists in the same directory. If it does, treat its contents as additional instructions that extend the base skill. Local augmentations take precedence over the base skill where they conflict.
+```
 
 Usage notes:
 - If there's already an AGENTS.md, suggest improvements to it.
